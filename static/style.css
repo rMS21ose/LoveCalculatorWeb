@@ -1,0 +1,161 @@
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Page background and main container */
+body {
+  min-height: 100vh;
+  font-family: "Georgia", serif;
+  background: linear-gradient(180deg, #ffb6c1 0%, #b97076 100%);
+  color: #2b1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Main content wrapper */
+.container {
+  width: 1050px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+/* Title */
+.title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  letter-spacing: 3px;
+  font-family: "Georgia", serif;
+  color: #3c1f1f;
+  text-shadow: 1px 1px 0 #fff6;
+}
+
+/* Left column: inputs */
+.left {
+  width: 50%;
+  padding: 40px;
+}
+
+.left label {
+  display: block;
+  font-size: 20px;
+  margin: 18px 0 10px;
+}
+
+.left input {
+  width: 80%;
+  height: 44px;
+  border: none;
+  padding: 10px 14px;
+  font-size: 18px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ffdbe6 0%, #d3b9b9 100%);
+  box-shadow: inset 0 6px 14px rgba(0,0,0,0.08);
+  outline: none;
+}
+
+#calculateBtn {
+  margin-top: 28px;
+  width: 40%;
+  height: 44px;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  background: #ffdbe6;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+/* Right column: circle, message and loader */
+.right {
+  width: 40%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circle with score */
+.circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.12), rgba(0,0,0,0.12)),
+              linear-gradient(180deg, #a64b55 0%, #7a2f33 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -18px 30px rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
+
+.circle #score {
+  font-size: 72px;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  font-family: "Georgia", serif;
+}
+
+/* Message text */
+.message {
+  margin-top: 6px;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
+
+/* Loader boxes */
+.loader {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.loader .box {
+  width: 18px;
+  height: 18px;
+  background: rgba(250,250,250,0.9);
+  border-radius: 2px;
+  transform-origin: center;
+  opacity: 0.35;
+}
+
+/* active animation: we will toggle .active loader class in JS */
+.loader.active {
+  opacity: 1;
+}
+
+.loader.active .box {
+  animation: pulse 1s infinite;
+}
+
+.loader.active .box:nth-child(2) { animation-delay: 0.08s; }
+.loader.active .box:nth-child(3) { animation-delay: 0.16s; }
+.loader.active .box:nth-child(4) { animation-delay: 0.24s; }
+.loader.active .box:nth-child(5) { animation-delay: 0.32s; }
+.loader.active .box:nth-child(6) { animation-delay: 0.40s; }
+.loader.active .box:nth-child(7) { animation-delay: 0.48s; }
+.loader.active .box:nth-child(8) { animation-delay: 0.56s; }
+.loader.active .box:nth-child(9) { animation-delay: 0.64s; }
+.loader.active .box:nth-child(10){ animation-delay: 0.72s; }
+
+@keyframes pulse {
+  0% { transform: scaleY(1); opacity: 0.35; }
+  50% { transform: scaleY(1.6); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0.35; }
+}
+
+/* Responsive small tweaks */
+@media (max-width: 1000px) {
+  .container { flex-direction: column; width: 90%; }
+  .left, .right { width: 100%; }
+  .circle { width: 200px; height: 200px; }
+}

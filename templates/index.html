@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Love Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">LOVE CALCULATOR</h1>
+
+    <div class="left">
+      <label>Enter your name</label>
+      <input id="name1" type="text" placeholder="Your name">
+
+      <label>Enter your partner's name</label>
+      <input id="name2" type="text" placeholder="Partner's name">
+
+      <button id="calculateBtn">Calculate</button>
+    </div>
+
+    <div class="right">
+      <div class="circle">
+        <span id="score">--</span>
+      </div>
+
+      <div id="message" class="message">Your result will appear here</div>
+
+      <div id="loader" class="loader">
+        <!-- 10 small boxes for processing symbol -->
+        <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+        <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
